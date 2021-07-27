@@ -10,7 +10,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import util.Log;
 import util.RestAPIMethods;
 import util.RestEndpoints;
 
@@ -42,8 +41,6 @@ public class Satellite_TLE {
     @When("a request is sent to get TLE data for satellite {string} on {string} endpoint")
     public void aRequestIsSentToGetTLEDataForSatellite(String satelliteId, String version) {
         response = getSatelliteTLEResponse(satelliteId, version);
-        Log.info(response.getBody().asString());
-
     }
 
     @When("a request is sent to get TLE data for satellite {string} on {string} endpoint with")
@@ -87,6 +84,7 @@ public class Satellite_TLE {
                 RestEndpoints.getUrlWithPath(GET_TLE_DATA_PATH).replace("{version}", version).replace("{id}", id),
                 paramsMap);
         ServiceResponseContext.setResponse(response);
+        System.out.println(response.getBody().asString());
         return response;
     }
 

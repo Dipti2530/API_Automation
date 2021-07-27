@@ -7,7 +7,8 @@ Structure-
 - This project is a standard maven based Java project including src folder and pom.xml
 - Cucumber Feature files are inside ./resources/Features
 - /src/test/java contains Step Definitions, DTOs and supporting util classes.
-- Tests can be run with unit testing framework TESTNG
+- Tests can be run using unit testing framework TESTNG
+- Lombok plugin is required to provide standard getters/ setters for DTO classes.
  
 
 Gaps-

@@ -11,7 +11,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import util.Log;
 import util.RestAPIMethods;
 import util.RestEndpoints;
 
@@ -44,7 +43,6 @@ public class SatellitePosition {
                 param -> paramsMap.put(param.get("paramName"), param.get("paramValue"))
         );
         response = getSatellitePositionsResponse(satelliteId, version);
-        Log.info(response.getBody().asString());
     }
 
 
@@ -90,6 +88,7 @@ public class SatellitePosition {
                 RestEndpoints.getUrlWithPath(GET_POSITIONS_PATH).replace("{version}", version).replace("{id}", id),
                 paramsMap);
         ServiceResponseContext.setResponse(response);
+        System.out.println(response.getBody().asString());
         return response;
     }
 
